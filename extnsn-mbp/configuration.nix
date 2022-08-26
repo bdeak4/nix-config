@@ -1,16 +1,22 @@
 { config, pkgs, ... }:
 
 {
+  nix = {
+    extraOptions = "experimental-features = nix-command flakes";
+    package = pkgs.nixFlakes;
+  };
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
-    [ pkgs.vim
+    [
+      pkgs.vim
       pkgs.ripgrep
     ];
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  environment.darwinConfig = "$HOME/src/nix-config/extnsn-mbp.nix";
+  environment.darwinConfig = "$HOME/src/nix-config/extnsn-mbp/configuration.nix";
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
