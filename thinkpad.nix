@@ -69,17 +69,6 @@ in
       EDITOR = "vim";
     };
 
-    dconf.settings = {
-      "org/gnome/shell".favorite-apps = [];
-      "org/gnome/desktop/interface".color-scheme = "prefer-dark";
-      "org/gnome/desktop/background" = {
-        picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
-        picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-d.svg";
-        primary-color = "#3465a4";
-        secondary-color = "#000000";
-      };
-    };
-
     programs.vim = {
       enable = true;
       plugins = with pkgs.vimPlugins; [
@@ -92,9 +81,28 @@ in
 
     programs.git = {
       enable = true;
-      userName  = "Bartol Deak";
+      userName = "Bartol Deak";
       userEmail = "b@bdeak.net";
     };
+
+    dconf.settings = {
+      "org/gnome/shell".favorite-apps = [ ];
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+        monospace-font-name = "JetBrains Mono, 10";
+      };
+      "org/gnome/desktop/background" = {
+        picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
+        picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-d.svg";
+        primary-color = "#3465a4";
+        secondary-color = "#000000";
+      };
+    };
+  };
+
+  fonts = {
+    fontDir.enable = true;
+    fonts = with pkgs; [ jetbrains-mono ];
   };
 
   # Allow unfree packages
@@ -116,6 +124,7 @@ in
     # gui
     firefox
     slack
+    vscode
     vlc
     gnomeExtensions.appindicator
   ];
@@ -156,5 +165,4 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
-
 }
