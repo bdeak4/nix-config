@@ -65,6 +65,10 @@ in
   };
 
   home-manager.users.bd = {
+    home.sessionVariables = {
+      EDITOR = "vim";
+    };
+
     dconf.settings = {
       "org/gnome/shell".favorite-apps = [];
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
@@ -107,11 +111,35 @@ in
     wget
     tree
     wl-clipboard
+    nixpkgs-fmt
 
     # gui
     firefox
     slack
+    vlc
+    gnomeExtensions.appindicator
   ];
+
+  # exclude useless gnome apps
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-photos
+    gnome-tour
+    gnome-text-editor
+  ]) ++ (with pkgs.gnome; [
+    cheese # webcam tool
+    gedit # text editor
+    epiphany # web browser
+    geary # email reader
+    gnome-characters
+    gnome-contacts
+    gnome-maps
+    gnome-calculator
+    totem # video player
+    tali # poker game
+    iagno # go game
+    hitori # sudoku game
+    atomix # puzzle game
+  ]);
 
   # List services that you want to enable:
 
