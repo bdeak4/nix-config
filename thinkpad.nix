@@ -117,6 +117,7 @@ in
     tree
     wl-clipboard
     nixpkgs-fmt
+    duf
 
     # gui
     firefox
