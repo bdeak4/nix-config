@@ -124,6 +124,7 @@ in
     slack
     vscode
     vlc
+    jetbrains.rider
   ];
 
   # exclude useless gnome apps
@@ -150,6 +151,23 @@ in
   # List services that you want to enable:
 
   services.openssh.enable = true;
+  services.avahi.enable = true;
+
+  networking.wg-quick.interfaces = {
+    wg0 = {
+      address = [ "192.168.44.2/24" ];
+      privateKeyFile = "/home/bd/.wg-privatekey";
+
+      peers = [
+        {
+          publicKey = "oaC/dmc7c9Qd6c1/ZhjOWZo7rvVSIE9cDRnecl7mon4=";
+          allowedIPs = [ "192.168.88.0/24" ];
+          endpoint = "193.198.39.246:51820";
+          #persistentKeepalive = 25;
+        }
+      ];
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
