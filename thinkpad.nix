@@ -81,6 +81,18 @@ in
       enable = true;
       userName = "Bartol Deak";
       userEmail = "b@bdeak.net";
+      signing = {
+        signByDefault = true;
+        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuAQ43SM0EVulTuivIuAGI0P2RcREUY0nTRtlolZDZ b@bdeak.net";
+      };
+      extraConfig = {
+        gpg = {
+          format = "ssh";
+        };
+        commit = {
+          verbose = true;
+        };
+      };
     };
 
     dconf.settings = {
