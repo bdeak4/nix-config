@@ -52,7 +52,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bd = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
 
     packages = with pkgs; [
     ];
@@ -63,6 +63,7 @@ in
       enable = true;
       sessionVariables = {
         EDITOR = "vim";
+        #PATH = "$PATH:/home/bd/.dotnet/tools";
       };
     };
 
@@ -118,9 +119,14 @@ in
     wl-clipboard
     nixpkgs-fmt
     duf
+    htop
+    dotnet-sdk
+    dotnet-runtime
+    dotnet-aspnetcore
+    nodejs
 
     # gui
-    firefox
+    firefox-wayland
     slack
     vscode
     vlc
@@ -152,6 +158,8 @@ in
 
   services.openssh.enable = true;
   services.avahi.enable = true;
+
+  virtualisation.docker.enable = true;
 
   networking.wg-quick.interfaces = {
     wg0 = {
