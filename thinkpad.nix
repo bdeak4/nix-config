@@ -133,8 +133,10 @@ in
     tree
     wl-clipboard
     nixpkgs-fmt
-    duf
     htop
+    ncdu
+    duf
+    tcpdump
     dotnet-sdk
     dotnet-runtime
     dotnet-aspnetcore
@@ -146,6 +148,7 @@ in
     vscode
     vlc
     jetbrains.rider
+    libreoffice
   ];
 
   # exclude useless gnome apps
