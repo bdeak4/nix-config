@@ -75,6 +75,9 @@ in
       settings = {
         ignorecase = true;
       };
+      extraConfig = ''
+        au FileType markdown setl ts=2 sw=2 et
+      '';
     };
 
     programs.git = {
