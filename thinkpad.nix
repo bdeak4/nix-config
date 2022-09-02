@@ -141,6 +141,8 @@ in
     dotnet-runtime
     dotnet-aspnetcore
     nodejs
+    python38
+    gcc
 
     # gui
     firefox-wayland
@@ -180,7 +182,7 @@ in
   virtualisation.docker.enable = true;
 
   networking.wg-quick.interfaces = {
-    wg0 = {
+    dump_ured = {
       address = [ "192.168.44.2/24" ];
       privateKeyFile = "/home/bd/.wg-privatekey";
 
