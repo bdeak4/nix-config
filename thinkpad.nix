@@ -138,12 +138,14 @@ in
     ncdu
     duf
     tcpdump
+    pandoc
     dotnet-sdk
     dotnet-runtime
     dotnet-aspnetcore
     nodejs
     python38
     gcc
+    ghostscript
 
     # gui
     firefox-wayland
