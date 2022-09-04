@@ -104,6 +104,7 @@ in
         color-scheme = "prefer-dark";
         monospace-font-name = "JetBrains Mono, 10";
       };
+      "org/gnome/desktop/sound".event-sounds = false; # disable terminal bell
       "org/gnome/desktop/background" = {
         picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
         picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-d.svg";
