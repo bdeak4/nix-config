@@ -99,7 +99,6 @@ in
     };
 
     dconf.settings = {
-      "org/gnome/shell".favorite-apps = [ ];
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
         monospace-font-name = "JetBrains Mono, 10";
@@ -115,6 +114,12 @@ in
         xkb-options = "['terminate:ctrl_alt_bksp']";
       };
       "org/gnome/desktop/sound".event-sounds = false; # disable terminal bell
+      "org/gnome/shell".favorite-apps = [ ];
+      "org/gnome/settings-daemon/plugins/power" = {
+        idle-dim = false;
+        power-button-action = "nothing";
+        sleep-inactive-ac-type = "nothing";
+      };
     };
   };
 
