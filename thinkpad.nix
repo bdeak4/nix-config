@@ -110,8 +110,7 @@ in
         secondary-color = "#000000";
       };
       "org/gnome/desktop/input-sources" = {
-        sources = "[('xkb', 'us'), ('xkb', 'hr')]";
-        xkb-options = "['terminate:ctrl_alt_bksp']";
+        sources = "[('xkb', 'hr+us')]";
       };
       "org/gnome/desktop/sound".event-sounds = false; # disable terminal bell
       "org/gnome/shell".favorite-apps = [ ];
@@ -148,9 +147,6 @@ in
     duf
     tcpdump
     pandoc
-    dotnet-sdk
-    dotnet-runtime
-    dotnet-aspnetcore
     nodejs
     python38
     gcc
@@ -158,6 +154,7 @@ in
 
     # gui
     firefox-wayland
+    thunderbird-102-wayland
     slack
     vscode
     vlc
