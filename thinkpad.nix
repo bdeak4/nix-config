@@ -159,7 +159,6 @@ in
     vscode
     vlc
     jetbrains.rider
-    libreoffice
   ];
 
   # exclude useless gnome apps
