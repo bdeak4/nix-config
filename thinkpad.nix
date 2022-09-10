@@ -159,6 +159,7 @@ in
     vscode
     vlc
     jetbrains.rider
+    gimp
   ];
 
   # exclude useless gnome apps
