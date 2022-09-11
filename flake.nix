@@ -3,8 +3,10 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-22.05";
-    home-manager.url = "github:nix-community/home-manager/release-22.05";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-22.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, ... }:
@@ -24,6 +26,20 @@
           ./systems/thinkpad_a485/hardware-configuration.nix
           ./systems/thinkpad_a485/configuration.nix
         ];
+      };
+    };
+
+    homeConfigurations = {
+      bd = home-manager.lib.homeManagerConfiguration {
+        inherit system pkgs;
+
+        username = "bd";
+        homeDirectory = "/home/bd";
+        configuration = {
+          imports = [
+            ./users/bd/home.nix
+          ];
+        };
       };
     };
   };
