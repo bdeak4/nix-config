@@ -21,7 +21,8 @@
         inherit system;
 
         modules = [
-          ./thinkpad.nix
+          ./systems/thinkpad_a485/hardware-configuration.nix
+          ./systems/thinkpad_a485/configuration.nix
         ];
       };
     };
