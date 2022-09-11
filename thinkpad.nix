@@ -151,6 +151,7 @@ in
     python38
     gcc
     ghostscript
+    mailcatcher
 
     # gui
     firefox-wayland
