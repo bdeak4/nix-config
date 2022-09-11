@@ -1,20 +1,5 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
-let
-  home-manager = builtins.fetchTarball {
-    url = "https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz";
-    sha256 = "0sdirpwqk61hnq8lvz4r2j60fxpcpwc8ffmicail2n4h6zifcn9n";
-  };
-in
 {
-  imports =
-    [
-      (import "${home-manager}/nixos")
-    ];
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Bootloader.
@@ -61,10 +46,6 @@ in
     ];
   };
 
-  home-manager = {
-    useGlobalPkgs = true;
-  };
-
   fonts = {
     fontDir.enable = true;
     fonts = with pkgs; [ jetbrains-mono ];
@@ -95,7 +76,6 @@ in
     gcc
     ghostscript
     mailcatcher
-    atuin
 
     # gui
     firefox-wayland

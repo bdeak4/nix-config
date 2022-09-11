@@ -4,7 +4,6 @@
     enable = true;
     sessionVariables = {
       EDITOR = "vim";
-      #PATH = "$PATH:/home/bd/.dotnet/tools";
     };
   };
 
