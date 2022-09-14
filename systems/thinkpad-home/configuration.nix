@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    auto-optimise-store = true;
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -16,6 +19,7 @@
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
+    displayManager.gdm.wayland = false;
     desktopManager.gnome.enable = true;
     layout = "us";
   };
@@ -76,10 +80,11 @@
     gcc
     ghostscript
     mailcatcher
+    dotnet-sdk
 
     # gui
-    firefox-wayland
-    thunderbird-102-wayland
+    firefox
+    thunderbird-102
     slack
     vscode
     vlc

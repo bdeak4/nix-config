@@ -19,12 +19,12 @@
     lib = nixpkgs.lib;
   in {
     nixosConfigurations = {
-      thinkpad = lib.nixosSystem {
+      thinkpad-home = lib.nixosSystem {
         inherit system;
 
         modules = [
-          ./systems/thinkpad_a485/hardware-configuration.nix
-          ./systems/thinkpad_a485/configuration.nix
+          ./systems/thinkpad-home/hardware-configuration.nix
+          ./systems/thinkpad-home/configuration.nix
         ];
       };
     };
