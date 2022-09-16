@@ -51,9 +51,6 @@
       primary-color = "#3465a4";
       secondary-color = "#000000";
     };
-    "org/gnome/desktop/input-sources" = {
-      sources = "[('xkb', 'hr+us')]";
-    };
     "org/gnome/desktop/sound".event-sounds = false; # disable terminal bell
     "org/gnome/shell".favorite-apps = [ ];
     "org/gnome/settings-daemon/plugins/power" = {

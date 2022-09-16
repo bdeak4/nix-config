@@ -20,7 +20,8 @@
     enable = true;
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
-    layout = "us";
+    layout = "hr";
+    xkbVariant = "us";
   };
 
   # Enable CUPS to print documents.
