@@ -81,10 +81,13 @@
     ghostscript
     mailcatcher
     dotnet-sdk
+    evolution-ews
+    zbar
+    qrencode
 
     # gui
-    firefox
-    thunderbird-102
+    firefox-wayland
+    thunderbird-102-wayland
     slack
     vscode
     vlc
