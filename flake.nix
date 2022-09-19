@@ -23,8 +23,8 @@
         inherit system;
 
         modules = [
-          ./systems/thinkpad-home/hardware-configuration.nix
-          ./systems/thinkpad-home/configuration.nix
+          ./hosts/thinkpad-home/hardware-configuration.nix
+          ./hosts/thinkpad-home/configuration.nix
         ];
       };
     };
