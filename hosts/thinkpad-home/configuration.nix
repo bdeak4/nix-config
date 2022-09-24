@@ -84,6 +84,11 @@
     evolution-ews
     zbar
     qrencode
+    elixir
+    inotify-tools
+    azure-cli
+    azure-storage-azcopy
+    terraform
 
     # gui
     firefox-wayland
