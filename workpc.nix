@@ -160,11 +160,13 @@ in
     ripgrep
     wget
     powertop
+    pandoc
     rclone
     restic
+    htop
 
+    nodejs
     dotnet-sdk
-    mono
   ];
 
   # exclude useless gnome apps
