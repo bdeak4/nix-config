@@ -137,7 +137,7 @@ in
       "org/gnome/shell".favorite-apps = [ ];
       "org/gnome/settings-daemon/plugins/power" = {
         idle-dim = false;
-        power-button-action = "nothing";
+        power-button-action = "suspend";
         sleep-inactive-ac-type = "nothing";
       };
     };
@@ -194,6 +194,7 @@ in
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.fprintd.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
