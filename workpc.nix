@@ -156,26 +156,28 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
-    git
-    tmux
-    ripgrep
-    wget
-    jq
-    pdfgrep
+    git vim tmux curl wget tree
+    ripgrep jq pup pdfgrep
     powertop
     pandoc
-    rclone
-    restic
-    htop
-    esh
-    pup
+    rclone restic
+    wl-clipboard
+    nixpkgs-fmt
+    zbar
+    qrencode
+    htop ncdu
+    duf
+    esh entr
+    mailcatcher
     bitwarden-cli
-    azure-cli
+    azure-cli azure-storage-azcopy
 
-    nodejs
-    yarn
+    elixir
+    nodejs yarn
     dotnet-sdk
+    python38
+    gcc
+    terraform
 
     firefox-wayland
     thunderbird-wayland
