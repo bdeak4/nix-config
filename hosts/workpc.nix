@@ -169,6 +169,7 @@ in
     duf
     esh entr
     mailcatcher
+    inotify-tools
     bitwarden-cli
     azure-cli azure-storage-azcopy
 
