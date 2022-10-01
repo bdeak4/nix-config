@@ -190,13 +190,30 @@ in
     atomix # puzzle game
   ]);
 
+  powerManagement.powertop.enable = true;
   virtualisation.docker.enable = true;
 
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.fprintd.enable = true;
+  #services.fprintd.enable = true;
+
+
+  networking.wg-quick.interfaces = {
+    dump_ured = {
+      address = [ "192.168.44.2/24" ];
+      privateKeyFile = "/home/bd/.wg-privatekey";
+
+      peers = [
+        {
+          publicKey = "oaC/dmc7c9Qd6c1/ZhjOWZo7rvVSIE9cDRnecl7mon4=";
+          allowedIPs = [ "192.168.88.0/24" ];
+          endpoint = "193.198.39.246:51820";
+        }
+      ];
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
