@@ -21,6 +21,13 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  #boot.extraModulePackages = [ config.boot.kernelPackages.r8168 ];
+  #boot.blacklistedKernelModules = [ "r8169" ];
+  hardware.enableAllFirmware = true;
+
+  # Enable energy savings during sleep
+  boot.kernelParams = ["mem_sleep_default=deep"];
+
   networking.hostName = "workpc";
   networking.networkmanager.enable = true;
 
@@ -74,12 +81,6 @@ in
     description = "bd";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
-      firefox-wayland
-      thunderbird-wayland
-      slack
-      vscode
-      vlc
-      jetbrains.rider
     ];
   };
 
@@ -150,6 +151,7 @@ in
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  #nixpkgs.config.allowBroken = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -159,14 +161,32 @@ in
     tmux
     ripgrep
     wget
+    jq
+    pdfgrep
     powertop
     pandoc
     rclone
     restic
     htop
+    esh
+    pup
+    bitwarden-cli
+    azure-cli
 
     nodejs
+    yarn
     dotnet-sdk
+
+    firefox-wayland
+    thunderbird-wayland
+    slack
+    vscode
+    vlc
+    jetbrains.rider
+    transmission-gtk
+    gparted
+
+    linuxPackages_xanmod.r8168
   ];
 
   # exclude useless gnome apps
