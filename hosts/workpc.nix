@@ -21,12 +21,13 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  #hardware.cpu.amd.updateMicrocode = true;
+  #hardware.enableAllFirmware = true;
+  #boot.kernelParams = [ "acpi_osi=Linux" "acpi_backlight=none" "processor.max_cstate=4" "iommu=soft" "idle=nomwait" ];
+  #boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
+
   #boot.extraModulePackages = [ config.boot.kernelPackages.r8168 ];
   #boot.blacklistedKernelModules = [ "r8169" ];
-  hardware.enableAllFirmware = true;
-
-  # Enable energy savings during sleep
-  boot.kernelParams = ["mem_sleep_default=deep"];
 
   networking.hostName = "workpc";
   networking.networkmanager.enable = true;
@@ -166,6 +167,7 @@ in
     zbar
     qrencode
     htop ncdu
+    nmap
     duf
     esh entr
     mailcatcher
@@ -186,6 +188,7 @@ in
     vscode
     vlc
     jetbrains.rider
+    jetbrains.datagrip
     transmission-gtk
     gparted
 
@@ -213,7 +216,9 @@ in
     atomix # puzzle game
   ]);
 
+  powerManagement.enable = true;
   powerManagement.powertop.enable = true;
+
   virtualisation.docker.enable = true;
 
   # List services that you want to enable:
@@ -237,6 +242,12 @@ in
       ];
     };
   };
+
+  # fix NetworkManager-wait-online.service crashing on rebuild
+  # https://github.com/NixOS/nixpkgs/issues/180175
+  systemd.services.NetworkManager-wait-online.enable = false;
+
+  system.autoUpgrade.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
